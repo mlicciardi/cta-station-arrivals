@@ -1,0 +1,11 @@
+<div class="align-middle text-center mt-3 mb-3">
+  <div class="input-group input-group-lg">
+    <Input type="text" class="form-control" placeholder="Search station ... " @value={{searchFilters.q}}
+      @input={{action "updateSearchFilters"}} />
+    <div class="input-group-append">
+      <BsButton @type="primary" @outline=true click={{action "updateSearchFilters"}}>
+        Search
+      </BsButton>
+    </div>
+  </div>
+</div>
