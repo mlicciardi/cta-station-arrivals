@@ -2,6 +2,6 @@
   @updateSearchFilters={{action "updateSearchFilters"}} />
 {{#each filteredStations as |station|}}
   <li>
-    <LinkTo @route="station" @model={{station.id}}>{{station.STATION_NAME}}</LinkTo>
+    <Station @station={{station}} />
   </li>
 {{/each}}

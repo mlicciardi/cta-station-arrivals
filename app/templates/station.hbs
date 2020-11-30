@@ -1,7 +1,9 @@
 <ul>
   {{#each sortedStops as |stop|}}
     <li>
-      <Stop @station={{station}} @stop={{stop}} />
+      <StationStop @station={{station}} @stop={{stop}} />
     </li>
   {{/each}}
 </ul>
+<hr>
+<StationStopEtas @stop={{station}} @etas={{sortedEtas}} @skipSortEtas={{true}} />

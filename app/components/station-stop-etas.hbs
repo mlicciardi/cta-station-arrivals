@@ -1,0 +1,8 @@
+{{@stop.STOP_NAME}} has ({{@etas.length}} items)
+<ul>
+  {{#each @etas as |eta|}}
+    <li>
+      <Eta @eta={{eta}} />
+    </li>
+  {{/each}}
+</ul>
