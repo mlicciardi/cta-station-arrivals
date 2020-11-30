@@ -1,7 +1,9 @@
 <HeroSearch @searchFilters={{searchFilters}} @minQueryLength={{minQueryLength}}
   @updateSearchFilters={{action "updateSearchFilters"}} />
-{{#each filteredStations as |station|}}
-  <li>
-    <Station @station={{station}} />
-  </li>
-{{/each}}
+<div class="row">
+  {{#each filteredStations as |station|}}
+    <div class="col-sm-12 col-md-4 mt-3">
+      <Station @station={{station}} />
+    </div>
+  {{/each}}
+</div>

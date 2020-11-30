@@ -27,11 +27,15 @@ export default class StationRoute extends Route {
           const id = stop.STOP_ID;
           promises[`stop-eta-${id}`] = resolve(
             this.store.findRecord("station-stop-eta", id).then((stop) => {
-              if (!stop.eta) {
-                const msg = `resolve failed for stop ${id}`;
+              if (!stop || !stop.eta) {
+                // I've noticed that sometimes it fails so ... let's add a notification
+                const msg = `Resolve failed for stop ${id}`;
                 console.warn(msg);
                 this.notify.alert(msg, { id });
               } else {
+                // this shouldnt be here but why not annoy the tester?
+                this.notify.info(`Resolved for stop ${id}`, { id });
+                // push without mercy, they are going to be sorted on the promise cb
                 stop.eta.forEach((eta) => this.sortedEtas.push(eta));
               }
             })
@@ -50,6 +54,7 @@ export default class StationRoute extends Route {
   async setupController(controller, model) {
     super.setupController(controller, model);
 
+    // model in this controller is quite useless so let's use these objs
     set(controller, "station", this.station);
     set(controller, "sortedStops", this.sortedStops);
     set(controller, "sortedEtas", this.sortedEtas);

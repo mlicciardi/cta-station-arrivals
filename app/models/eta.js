@@ -1,5 +1,6 @@
 import Model, { attr } from "@ember-data/model";
 
+// useless since no relationship has been implemented in StationStopEtaModel
 export default class EtaModel extends Model {
   @attr("string") staId;
   @attr("string") stpId;

@@ -10,7 +10,7 @@ export default class StationStopRoute extends Route {
   async model(params) {
     this.parentStationId = params.station_id;
 
-    return this.store.findRecord("stop-eta", params.stop_id);
+    return this.store.findRecord("station-stop-eta", params.stop_id);
   }
 
   async setupController(controller, model) {

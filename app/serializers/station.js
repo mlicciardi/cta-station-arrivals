@@ -2,6 +2,7 @@ import JSONSerializer from "@ember-data/serializer/json";
 
 export default class StationSerializer extends JSONSerializer {
   normalizeResponse(_store, _primaryModelClass, payload, id) {
+    // since it'a raw json I'm going to to pretend to properly parse it to build the proper jsonp that the hamster loves
     let jsonpPayload;
     if (id) {
       jsonpPayload = payload
